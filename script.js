@@ -1,69 +1,63 @@
-const API_KEY = "5gSqAllWcDCPLN7n1Gd2sdjF604vRmq3zYREJZzUGd8";
+let  ACCESS_KEY = 'QnMCMLtE2TjRhwQJJS_zl5rXNTyVH6Z3tFtNam6U2Ww'
 
 
-const formElement = document.querySelector("form");
-const inputElement = document.getElementById("searchinput");
-const searchResults = document.querySelector(".search-results")
-
-const showMore = document.querySelector(".showmorebtn");
+let search_btn = document.getElementById('search-btn');
 
 
-let inputData = ""; //it will store all the words that user is typing in the search box
+//TtUrE0KQ-p47U-49nXqQNsIWi43L_yQdY9zLNiG8CAE  secret key
 
-//initialse default page number nad when user click on show more btn ,it will increase
+//https://api.unsplash.com/photos/random?query=your_keyword&page=your_page_number&client_id=YOUR_ACCESS_KEY
 
-let page=1;
 
-async function searchImages()
-{
-    inputData = inputElement.value;
-    const URL = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${API_KEY}`;
+search_btn.addEventListener('click',()=>{
 
-    const response = await fetch(URL);
-    const data = await response.json();
+    console.log("inside event listener")
+    let input =  document.getElementById('inputText').value
+    console.log(input)
+    fetchTheAPI(input);
 
-    const results = data.results;
+    card_div.innerHTML= "";
+})
 
-    if(page===1)
-    {
-        searchResults.innerText ="";
-    }
+let card_div = document.getElementById('card-section')
 
-    results.map((result)=>{
-       const imageWrapper = document.createElement('div');
-       imageWrapper.classList.add('search-result');
-       const image = document.createElement('img');
-       image.src=result.urls.small;
-       image.alt = result.alt_description;
-       const imagelink  = document.createElement('a');
-       imagelink.href = result.links.html;
-       imagelink.target = "_blank";
-       imagelink.textContent = result.alt_description;
+let fetchTheAPI = async (query)=>{
 
-       imageWrapper.appendChild(image);
-       imageWrapper.appendChild(imagelink);
-       searchResults.appendChild(imageWrapper);
+    
+console.log(query)
 
-        
-    })
-    page++;
-    if(page>1)
-    {
-        showMore.style.display = "flex";
-    }
+//https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${API_KEY}`
+let API_URL = `https://api.unsplash.com/search/photos?query=${query}&page=1&client_id=${ACCESS_KEY}`;
+
+    console.log(API_URL)
+
+
+    let firstAwait = await fetch(API_URL);
+    let response = await firstAwait.json();
+
+    console.log(response.results);
+
+    console.log(typeof(response))
+
+    createCards(response.results);
+
+
 }
 
-formElement.addEventListener("submit",function(event)
-{
-    event.preventDefault();
-    page=1;
-    searchImages();
+function createCards(data){
+data.forEach(element => {
 
+    card_div.innerHTML += 
+
+    `
+    <div class="flex card">
+        <img src="${element.urls.small}" alt="${element.alt_description
+        }">
+        <div> <a href="${element.links.html}">${element.alt_description}</a></div>
+    </div>
+    `;
+    
 });
+   
 
-showMore.addEventListener("click",()=>
-{
-  
-    searchImages();
-
-});
+}
