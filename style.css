@@ -91,3 +91,19 @@ height: 13rem;
     text-align: center;
    
 }
+
+@media (max-width:768px) {
+    #card-section{
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+
+@media (max-width:468px) {
+    #card-section{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    header{
+        flex-direction: column;
+    }
+}
