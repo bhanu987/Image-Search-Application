@@ -3,57 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Search App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Image Search Application</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-   <header >
+    <header class="flex">
+        <div>
+            <h2>Image Search App</h2>
+        </div>
 
-    <div class="  head container flex">
-        <h1>Image Search App</h1>
+      <div class="searchbar ">
+        <form action="#"class= "flex">
+            <input type="text" name="inputText" id="inputText" placeholder="e.g Waterfall">
+            <button type="button" id="search-btn" >Search</button>
 
-        <form action="post">
-    
-            <input type="search" name="search" id="searchinput" placeholder="e.g Cricket">
-            <button id="search-btn">Search</button>
         </form>
+      </div>
+           
     
-    </div>
+    </header>
+
+    <section id="card-section">
+<div class="flex card">
+    <img src="https://images.unsplash.com/photo-1696963937855-ede32b298348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Mountains range at sunset">
+    <div> <a href="#">Mountains range at sunset</a></div>
    
-   </header>
+</div>
 
-   <main>
-    <div class="search-results flex container">
-        <div class="search-result flex">
-          
-          <img src="https://images.unsplash.com/photo-1696963937855-ede32b298348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8NnNNVmpUTFNrZVF8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Nature img">
-          
-          <a href="https://unsplash.com/photos/a-view-of-a-mountain-range-at-sunset-ZBHX6N8S-_M" target="_blank">Mountains Range At Sunset</a>
-         
-        </div>
-
-        <div class="search-result flex">
-            
-         <img src="https://images.unsplash.com/photo-1697048851717-81d7cbee7ed2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="Nature img">
-           
-           
-<a href="https://unsplash.com/photos/a-full-moon-is-seen-above-the-clouds-on-top-of-a-mountain-zoHEgxqAiTM" target="_blank">A full moon is seen above the clouds on top of a mountain</a>
-           
-        </div>
-        <div class="search-result flex">
-            
-<img src="https://plus.unsplash.com/premium_photo-1690749740487-01bbb8e51e71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="Nature img">
-           
-<a href="https://plus.unsplash.com/premium_photo-1690749740487-01bbb8e51e71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" target="_blank"> A view of mountain and a body of water.</a>
-         
-        </div>
-    </div>
-
-    <button  class="showmorebtn">Show More</button>
-
-   
-   </main>
-  
-    <script src="script.js"></script>
+<div class="flex card">
+    <img src="https://images.unsplash.com/photo-1548509925-0e7aa59c6bc3?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"alt="Flock of birds flying over the sea">
+    <div> <a href="#">Flock of birds flying over the sea</a></div>
+</div>
+<div class="flex card">
+    <img src="https://images.unsplash.com/flagged/photo-1557899775-24a0957d3895?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MTg0OTd8MHwxfHNlYXJjaHwyfHxiZWFjaGVzfGVufDB8fHx8MTcxNzMzMTM2Nnww&ixlib=rb-4.0.3&q=80&w=400" alt="Blue sea under white clouds at daytime">
+    <div> <a href="#">Blue sea under white clouds at daytime</a></div>
+</div>
+    </section>
+    <script src="./script.js"></script>
 </body>
 </html>
